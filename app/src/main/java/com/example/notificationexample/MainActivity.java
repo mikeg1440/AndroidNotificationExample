@@ -13,6 +13,9 @@ import android.widget.EditText;
 import static com.example.notificationexample.App.CHANNEL_1_ID;
 
 public class MainActivity extends AppCompatActivity {
+    private NotificationManagerCompat notificationManager;
+    private EditText editTextTitle;
+    private EditText editTextMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
