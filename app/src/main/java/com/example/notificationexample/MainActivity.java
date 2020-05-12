@@ -21,5 +21,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        notificationManager = NotificationManagerCompat.from(this);
+        editTextTitle = findViewById(R.id.edit_text_title);
+        editTextMessage = findViewById(R.id.edit_text_message);
+    }
+
+    public void sendOnChannel1(View v){
+        String title = editTextTitle.getText().toString();
+        String message = editTextMessage.getText().toString();
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+            .setSmallIcon(R.drawable.ic_android)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .build();
+
+        notificationManager.notify(1, notification);
     }
 }
